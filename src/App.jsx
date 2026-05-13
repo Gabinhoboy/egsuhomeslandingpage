@@ -69,9 +69,9 @@ export default function App() {
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
         borderColor: scrolled ? 'rgba(200,177,111,0.15)' : 'transparent',
       }}>
-        <div className="max-w-7xl mx-auto px-8 lg:px-16 flex justify-between items-center py-4">
+        <div className="max-w-7xl mx-auto px-8 lg:px-16 flex justify-between items-center py-2 md:py-3">
           <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src={logo} alt="EGSU Logo" className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+            <img src={logo} alt="EGSU Logo" className="h-14 md:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
           </div>
           <div className="hidden md:flex items-center gap-10">
             {[['problem','The Problem'],['process','Our Process'],['proof','Results']].map(([id, label]) => (
