@@ -71,7 +71,7 @@ export default function App() {
       }}>
         <div className="max-w-7xl mx-auto px-8 lg:px-16 flex justify-between items-center py-2 md:py-3">
           <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src={logo} alt="EGSU Logo" className="h-14 md:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+            <img src={logo} alt="EGSU Logo" className="h-14 md:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 brightness-0 invert" />
           </div>
           <div className="hidden md:flex items-center gap-10">
             {[['problem','The Problem'],['process','Our Process'],['proof','Results']].map(([id, label]) => (
@@ -469,7 +469,7 @@ export default function App() {
 
       {/* FOOTER */}
       <footer className="py-16 px-8 lg:px-24 text-center" style={{ background: '#080808', borderTop: `1px solid rgba(200,177,111,0.12)` }}>
-        <img src={logo} alt="EGSU Logo" className="h-12 w-auto mx-auto mb-6 grayscale brightness-125 opacity-80" />
+        <img src={logo} alt="EGSU Logo" className="h-12 w-auto mx-auto mb-6 brightness-0 invert opacity-80" />
         <p className="font-sans text-xs tracking-[0.25em] uppercase mb-6" style={{ color: 'rgba(255,255,255,0.3)' }}>Engineer-Led Construction · Costa Rica</p>
         <div className="w-16 h-px mx-auto mb-6" style={{ background: `linear-gradient(to right, transparent, rgba(200,177,111,0.4), transparent)` }} />
         <p className="font-sans text-xs" style={{ color: 'rgba(255,255,255,0.2)' }}>© 2026 EGSU. All Rights Reserved.</p>
