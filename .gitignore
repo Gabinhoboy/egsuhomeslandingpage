@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Large video files - do not commit to git directly
+src/assets/*.mp4
+storage_backup/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
