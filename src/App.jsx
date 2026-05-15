@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { Shield, ChevronRight, CheckCircle2, Eye, MessageSquare, Clock, Play } from 'lucide-react';
 import logo from './assets/Egsu-logo-versiones_dorado.png';
+import altagraciaVideo from './assets/Testimonio Altagracia V4 compressed.mp4';
+import testimonial2 from './assets/Egsu Homes Testiomnial 2.mp4';
+import testimonial3 from './assets/Testimony 3.mp4';
 
 const GOLD = '#c8b16f';
 const DARK = '#0d0d0d';
@@ -53,7 +56,7 @@ export default function App() {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  const goto = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const [playingVideo, setPlayingVideo] = useState(null);
 
   return (
     <div className="min-h-screen" style={{ background: DARK, fontFamily: "'Poppins', sans-serif" }}>
@@ -355,24 +358,72 @@ export default function App() {
             </Reveal>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {['Client Story I', 'Client Story II', 'Client Story III'].map((label, i) => (
-              <Reveal key={label} delay={i * 100}>
+            {[
+              { label: 'Altagracia', video: altagraciaVideo, text: "The transparency and control EGSU provided throughout my project in Costa Rica was exactly what I needed as an international investor." },
+              { label: 'Client Story II', video: testimonial2, text: "For my project in Costa Rica, I needed a team that understood the balance between architectural beauty and technical precision. EGSU Homes delivered exactly that, with a focus on quality that is hard to find elsewhere." },
+              { label: 'Client Story III', video: testimonial3, text: "When Jack and Rolinka took a wrong turn in Costa Rica, they accidentally discovered a construction site by EGSU Inmobiliaria — and that moment changed everything" }
+            ].map((item, i) => (
+              <Reveal key={item.label} delay={i * 100}>
                 <div className="overflow-hidden transition-all duration-300" style={{ border: '1px solid rgba(200,177,111,0.2)' }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = GOLD; e.currentTarget.style.boxShadow = '0 20px 60px rgba(200,177,111,0.1)'; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(200,177,111,0.2)'; e.currentTarget.style.boxShadow = 'none'; }}
                 >
-                  <div className="flex items-center justify-center" style={{ background: '#ede8e0', aspectRatio: '16/9' }}>
-                    <div className="flex flex-col items-center gap-3">
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ border: `1px solid ${GOLD}` }}>
-                        <Play className="h-6 w-6 ml-1" style={{ color: GOLD }} />
+                  <div className="relative group cursor-pointer" 
+                    style={{ background: '#ede8e0', aspectRatio: '16/9' }}
+                    onClick={() => (item.video || item.youtubeId) && setPlayingVideo(playingVideo === i ? null : i)}
+                  >
+                    {playingVideo === i ? (
+                      item.youtubeId ? (
+                        <iframe
+                          className="w-full h-full"
+                          src={`https://www.youtube.com/embed/${item.youtubeId}?autoplay=1`}
+                          title="YouTube video player"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                        ></iframe>
+                      ) : (
+                        <video 
+                          src={item.video} 
+                          className="w-full h-full object-cover" 
+                          controls 
+                          autoPlay 
+                        />
+                      )
+                    ) : (
+                      <div className="w-full h-full relative overflow-hidden">
+                        {item.video && (
+                          <video 
+                            src={`${item.video}#t=50`}
+                            className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale-[20%]"
+                            muted
+                            playsInline
+                            onMouseOver={e => {
+                              e.currentTarget.currentTime = 0;
+                              e.currentTarget.play();
+                            }}
+                            onMouseOut={e => { 
+                              e.currentTarget.pause(); 
+                              e.currentTarget.currentTime = 50; 
+                            }}
+                            onLoadedMetadata={e => {
+                              e.currentTarget.currentTime = 50;
+                            }}
+                          />
+                        )}
+                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/10 group-hover:bg-transparent transition-colors duration-500">
+                          <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:bg-white/10" style={{ border: `1px solid ${GOLD}` }}>
+                            <Play className="h-6 w-6 ml-1" style={{ color: GOLD }} />
+                          </div>
+                          <p className="font-sans text-xs tracking-[0.25em] uppercase" style={{ color: GOLD }}>{item.label}</p>
+                        </div>
                       </div>
-                      <p className="font-sans text-xs tracking-[0.25em] uppercase" style={{ color: GOLD }}>{label}</p>
-                    </div>
+                    )}
                   </div>
                   <div className="p-8" style={{ background: 'white' }}>
                     <div className="w-8 h-px mb-5" style={{ background: GOLD }} />
                     <p className="font-serif text-base font-light italic leading-relaxed" style={{ color: '#666' }}>
-                      Testimonial or case study content goes here — real outcome, real client, real project.
+                      {item.text}
                     </p>
                   </div>
                 </div>
