@@ -384,17 +384,18 @@ export default function App() {
                         ></iframe>
                       ) : (
                         <video 
-                          src={item.video} 
                           className="w-full h-full object-cover" 
                           controls 
                           autoPlay 
-                        />
+                        >
+                          <source src={item.video} type="video/mp4" />
+                          Tu navegador no soporta el formato de video.
+                        </video>
                       )
                     ) : (
                       <div className="w-full h-full relative overflow-hidden">
                         {item.video && (
                           <video 
-                            src={`${item.video}#t=50`}
                             className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale-[20%]"
                             muted
                             playsInline
@@ -409,7 +410,9 @@ export default function App() {
                             onLoadedMetadata={e => {
                               e.currentTarget.currentTime = 50;
                             }}
-                          />
+                          >
+                            <source src={`${item.video}#t=50`} type="video/mp4" />
+                          </video>
                         )}
                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/10 group-hover:bg-transparent transition-colors duration-500">
                           <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:bg-white/10" style={{ border: `1px solid ${GOLD}` }}>
