@@ -1,9 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Shield, ChevronRight, CheckCircle2, Eye, MessageSquare, Clock, Play } from 'lucide-react';
 import logo from './assets/Egsu-logo-versiones_dorado.png';
-import altagraciaVideo from './assets/Testimonio Altagracia V4 compressed.mp4';
-import testimonial2 from './assets/Egsu Homes Testiomnial 2.mp4';
-import testimonial3 from './assets/Testimony 3.mp4';
 
 const GOLD = '#c8b16f';
 const DARK = '#0d0d0d';
