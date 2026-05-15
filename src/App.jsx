@@ -354,11 +354,10 @@ export default function App() {
               </p>
             </Reveal>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
-              { label: 'Altagracia', video: 'videos/Testimonio Altagracia V4 compressed.mp4', text: "The transparency and control EGSU provided throughout my project in Costa Rica was exactly what I needed as an international investor." },
-              { label: 'Client Story II', video: 'videos/Egsu Homes Testiomnial 2.mp4', text: "For my project in Costa Rica, I needed a team that understood the balance between architectural beauty and technical precision. EGSU Homes delivered exactly that, with a focus on quality that is hard to find elsewhere." },
-              { label: 'Client Story III', video: 'https://res.cloudinary.com/dbx8wn7p2/video/upload/v1778693587/Serenity_House___How_Getting_Lost_Led_Us_to_Our_Dream_Home_in_Costa_Rica___EGSU_Client_Story_hykpay.mp4', text: "When Jack and Rolinka took a wrong turn in Costa Rica, they accidentally discovered a construction site by EGSU Inmobiliaria — and that moment changed everything" }
+              { label: 'Altagracia', video: 'https://res.cloudinary.com/dbx8wn7p2/video/upload/v1778879128/Testimonio_Altagracia_V4_compressed_wtitye.mp4', text: "The transparency and control EGSU provided throughout my project in Costa Rica was exactly what I needed as an international investor." },
+              { label: 'Client Story', video: 'https://res.cloudinary.com/dbx8wn7p2/video/upload/v1778693587/Serenity_House___How_Getting_Lost_Led_Us_to_Our_Dream_Home_in_Costa_Rica___EGSU_Client_Story_hykpay.mp4', text: "When Jack and Rolinka took a wrong turn in Costa Rica, they accidentally discovered a construction site by EGSU Inmobiliaria — and that moment changed everything" }
             ].map((item, i) => (
               <Reveal key={item.label} delay={i * 100}>
                 <div className="overflow-hidden transition-all duration-300" style={{ border: '1px solid rgba(200,177,111,0.2)' }}
