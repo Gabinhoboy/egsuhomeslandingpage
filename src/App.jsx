@@ -54,6 +54,10 @@ export default function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   const [playingVideo, setPlayingVideo] = useState(null);
+  const goto = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <div className="min-h-screen" style={{ background: DARK, fontFamily: "'Poppins', sans-serif" }}>
