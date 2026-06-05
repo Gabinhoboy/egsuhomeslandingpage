@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Shield, ChevronRight, CheckCircle2, Eye, MessageSquare, Clock, Play } from 'lucide-react';
 import logo from './assets/Egsu-logo-versiones_dorado.png';
+import casaFoto1 from './assets/casa foto 1.png';
 
 const GOLD = '#c8b16f';
 const DARK = '#0d0d0d';
@@ -211,7 +212,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
           <Reveal className="relative">
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2940&auto=format&fit=crop" alt="Engineers at work" className="w-full object-cover" style={{ aspectRatio: '4/5' }} />
+              <img src={casaFoto1} alt="EGSU construction project" className="w-full object-cover" style={{ aspectRatio: '4/5' }} />
               <div className="absolute inset-0" style={{ border: `1px solid rgba(200,177,111,0.2)`, transform: 'translate(-12px, 12px)', zIndex: -1 }} />
             </div>
           </Reveal>
