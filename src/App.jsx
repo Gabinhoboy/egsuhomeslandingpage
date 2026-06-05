@@ -5,6 +5,7 @@ import logo from './assets/Egsu-logo-versiones_dorado.png';
 const GOLD = '#c8b16f';
 const DARK = '#0d0d0d';
 const CREAM = '#f9f6f1';
+const WHATSAPP_URL = 'https://wa.me/16506803685?text=Hello%2C%20I%20just%20visited%20your%20website%20and%20would%20like%20to%20schedule%20a%20call%20to%20discuss%20my%20project%20in%20Costa%20Rica.';
 
 function useScrollAnimation() {
   const ref = useRef(null);
@@ -86,14 +87,14 @@ export default function App() {
                 onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.5)'}
               >{label}</button>
             ))}
-            <button onClick={() => goto('contact')}
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
               className="font-sans text-xs tracking-[0.2em] uppercase px-6 py-3 border transition-all duration-300"
               style={{ borderColor: GOLD, color: GOLD }}
               onMouseEnter={e => { e.currentTarget.style.background = GOLD; e.currentTarget.style.color = DARK; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = GOLD; }}
             >
               Evaluate Your Project
-            </button>
+            </a>
           </div>
         </div>
       </nav>
@@ -120,7 +121,7 @@ export default function App() {
             </p>
           </Reveal>
           <Reveal delay={300}>
-            <button onClick={() => goto('contact')}
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
               className="font-sans text-xs tracking-[0.25em] uppercase inline-flex items-center gap-3 px-10 py-5 transition-all duration-300"
               style={{ background: GOLD, color: DARK }}
               onMouseEnter={e => { e.currentTarget.style.background = '#d4bc80'; }}
@@ -128,7 +129,7 @@ export default function App() {
             >
               Evaluate Your Project Before You Commit Capital
               <ChevronRight className="h-4 w-4" />
-            </button>
+            </a>
           </Reveal>
         </div>
       </section>
@@ -508,7 +509,7 @@ export default function App() {
             </p>
           </Reveal>
           <Reveal delay={240}>
-            <button
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
               className="font-sans text-xs tracking-[0.25em] uppercase inline-flex items-center gap-3 px-12 py-5 transition-all duration-300"
               style={{ background: DARK, color: GOLD }}
               onMouseEnter={e => { e.currentTarget.style.background = '#1a1a1a'; }}
@@ -516,7 +517,7 @@ export default function App() {
             >
               Evaluate Your Project Before You Commit Capital
               <ChevronRight className="h-4 w-4" />
-            </button>
+            </a>
           </Reveal>
         </div>
       </section>
