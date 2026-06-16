@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Shield, ChevronRight, CheckCircle2, Eye, MessageSquare, Clock, Play } from 'lucide-react';
 import logo from './assets/Egsu-logo-versiones_dorado.png';
 import casaFoto1 from './assets/casa foto 1.png';
+import propertyImage from './assets/image.png';
 
 const GOLD = '#c8b16f';
 const DARK = '#0d0d0d';
@@ -176,7 +177,7 @@ export default function App() {
           </div>
           <Reveal delay={180} className="relative">
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2940&auto=format&fit=crop" alt="Luxury property" className="w-full object-cover" style={{ aspectRatio: '4/5' }} />
+              <img src={propertyImage} alt="Luxury property" className="w-full object-cover" style={{ aspectRatio: '4/5' }} />
               <div className="absolute inset-0" style={{ border: `1px solid rgba(200,177,111,0.25)`, transform: 'translate(12px, 12px)', zIndex: -1 }} />
             </div>
           </Reveal>
@@ -360,10 +361,11 @@ export default function App() {
               </p>
             </Reveal>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               { label: 'Altagracia', video: 'https://res.cloudinary.com/dbx8wn7p2/video/upload/v1778879128/Testimonio_Altagracia_V4_compressed_wtitye.mp4', text: "The transparency and control EGSU provided throughout my project in Costa Rica was exactly what I needed as an international investor." },
-              { label: 'Client Story', video: 'https://res.cloudinary.com/dbx8wn7p2/video/upload/v1778693587/Serenity_House___How_Getting_Lost_Led_Us_to_Our_Dream_Home_in_Costa_Rica___EGSU_Client_Story_hykpay.mp4', text: "When Jack and Rolinka took a wrong turn in Costa Rica, they accidentally discovered a construction site by EGSU Inmobiliaria — and that moment changed everything" }
+              { label: 'Client Story', video: 'https://res.cloudinary.com/dbx8wn7p2/video/upload/v1778693587/Serenity_House___How_Getting_Lost_Led_Us_to_Our_Dream_Home_in_Costa_Rica___EGSU_Client_Story_hykpay.mp4', text: "When Jack and Rolinka took a wrong turn in Costa Rica, they accidentally discovered a construction site by EGSU Inmobiliaria — and that moment changed everything" },
+              { label: 'Client Testimonial', video: 'https://res.cloudinary.com/dbx8wn7p2/video/upload/v1781585179/WhatsApp_Video_2026-06-15_at_14.50.55_1_ltqvi8.mp4', text: "Another satisfied client sharing their experience working with EGSU to build their dream home in Costa Rica with confidence and peace of mind." }
             ].map((item, i) => (
               <Reveal key={item.label} delay={i * 100}>
                 <div className="overflow-hidden transition-all duration-300" style={{ border: '1px solid rgba(200,177,111,0.2)' }}
